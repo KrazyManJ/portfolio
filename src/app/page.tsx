@@ -1,31 +1,26 @@
+'use client';
 import React from "react";
-import {Fira_Code} from "next/font/google";
 
 
 import IconLabel from "@/components/IconLabel";
 
 
-const FONT_FIRA_CODE = Fira_Code({
-    subsets: ["latin"]
-});
-
-
 const Title = ({children}: { children: string }) => <h2 className="font-bold transition-colors text-5xl">{children}</h2>
 
-export default function Home() {
+export default function Main() {
     return (
         <main className="p-8">
             <div className={"text-center mb-14"}>
                 <h1 className={"font-extrabold text-8xl mb-5"}>KrazyManJ</h1>
                 <div className={"font-medium text-4xl"}>Software developer</div>
             </div>
-            <Title>Tools i am using</Title>
+            <Title>Tools I am using</Title>
             <div className="flex gap-4 my-8 mx-24 flex-wrap justify-stretch">
                 <IconLabel
                     img="/icons/cloudflare.svg"
                     label="Cloudflare"
                     link="https://www.cloudflare.com"
-                    tooltip={"Network Management (DNS)"}
+                    tooltip={"Network Management service (Domain management)"}
                 />
                 <IconLabel
                     img="/icons/latex.svg"
@@ -142,7 +137,7 @@ export default function Home() {
                     img={"/icons/nextjs.svg"}
                     label="Next.js"
                     link={"https://nextjs.org"}
-                    tooltip={"Web deelopment framework based on React with\nallowance of serverside rendering"}
+                    tooltip={"Web development framework based on React with\nallowance of serverside rendering"}
                 />
                 <IconLabel
                     img={"/icons/qt.svg"}
@@ -153,25 +148,40 @@ export default function Home() {
                 <IconLabel
                     img={"/icons/sass.svg"}
                     label="Sass"
+                    link={"https://sass-lang.com"}
+                    tooltip={"CSS Framework to write CSS in more efficient way"}
                 />
                 <IconLabel
                     img={"/icons/react.svg"}
                     label="React"
+                    link={"https://react.dev"}
+                    tooltip={"Javascript library to create web interfaces"}
                 />
                 <IconLabel
                     img={"/icons/manim.svg"}
                     label="Manim"
-                    link="https://www.manim.community"/>
+                    link="https://www.manim.community"
+                    tooltip={""}
+                />
                 <IconLabel
                     img={"/icons/framer-motion.svg"}
                     label="Framer Motion"
+                    link={"https://www.framer.com/motion/"}
+                    tooltip={"React library to handle animations on website"}
                 />
                 <IconLabel
                     img={"/icons/mermaidjs.svg"}
                     label="Mermaid.js"
+                    link={"https://mermaid.js.org"}
+                    tooltip={"Javascript library to render charts and diagrams"}
+                />
+                <IconLabel
+                    img={"/icons/tkinter.svg"}
+                    label="Tkinter"
+                    link={"https://docs.python.org/3/library/tkinter.html"}
+                    tooltip={"Python library to create really basic UI in small time"}
                 />
             </div>
-            {/*<Latex>{"$$\\Huge\\frac{d}{dx}\\left( \\frac{\\lim\\limits_{ h \\to \\infty } \\frac{ (x+h)^{3}-x^{3} }{h} \\cdot \\sum\\limits_{n=0}^{\\infty} \\frac{ x^{n+1} }{ n+1 }}{\\int\\limits_{0}^{x} \\ln t \\, dt }  \\right)$$"}</Latex>*/}
         </main>
     )
 }
