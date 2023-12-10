@@ -1,0 +1,67 @@
+svg {
+    animation: idle 4s infinite;
+}
+
+@keyframes idle {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+svg.klobuk {
+    #Right-Hand, #Right-Wrist,
+    #Left-Hand, #Left-Wrist,
+    #Bottom-Hat, #Top-Hat, #Hat-Stripe,
+    #Flower, #Flower-Middle
+    {
+        animation: MoveDownAndUp 2s;
+    }
+    //#Head {
+    //    animation: MoveDownAndUpLow 2s;
+    //}
+}
+
+svg.blink {
+    #Right-outer-Eye, #Right-inner-Eye, #Right-eye-Spark,
+    #Left-outer-Eye, #Left-inner-Eye, #Left-eye-Spark
+    {
+        transform-origin: 0 380px;
+        animation: Blink 0.15s ease-in-out;
+    }
+}
+
+@keyframes Blink {
+    0%,100% {
+        transform: scaleY(100%);
+    }
+    50% {
+        transform: scaleY(0%);
+    }
+}
+
+@keyframes MoveDownAndUp {
+    0% {
+        transform: translate(0,0);
+    }
+    50% {
+        transform: translate(0,20px);
+    }
+    0% {
+        transform: translate(0,0);
+    }
+}
+
+@keyframes MoveDownAndUpLow {
+    0% {
+        transform: translate(0,0);
+    }
+    50% {
+        transform: translate(0,5px);
+    }
+    0% {
+        transform: translate(0,0);
+    }
+}

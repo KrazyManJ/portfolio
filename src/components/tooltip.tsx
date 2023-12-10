@@ -4,14 +4,14 @@ import React from "react";
 import {motion} from "framer-motion";
 
 interface ToolTipProps {
-    text: string,
+    text: string | React.ReactElement,
     children: React.ReactElement
 }
 
 const SHOWTIME = 0.5;
 
 const ToolTip = (props: ToolTipProps) =>
-    <motion.div className="flex-shrink-0 relative group/tooltip" whileHover="hover">
+    <motion.div className="flex-shrink-0 relative w-fit group/tooltip" whileHover="hover">
         {props.children}
         <motion.div
             className="pointer-events-none absolute mt-2 z-10 flex justify-center w-[150%] -left-[25%]"
