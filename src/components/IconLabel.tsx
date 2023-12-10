@@ -3,17 +3,16 @@
 import {motion} from "framer-motion";
 import Image from "next/image";
 import React from "react";
-import {cva} from "class-variance-authority";
 import ToolTip from "@/components/tooltip";
 
-interface FrameworkProps {
+export interface IconLabelProps {
     img: string,
     label: string,
     link: string,
     tooltip: string
 }
 
-const IconLabel = (props: FrameworkProps) =>
+const IconLabel = (props: IconLabelProps) =>
     <ToolTip text={props.tooltip}>
         <a href={props.link ?? ""} target="_blank">
             <motion.span
