@@ -1,0 +1,85 @@
+svg.alfons {
+    animation: idle 4s infinite;
+    .left_eye *, .right_eye *, .nose {
+        transition: transform 0.1s ease-in-out;
+        transform-origin: center;
+    }
+}
+
+@keyframes idle {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+svg.klobuk {
+    .hat {
+        transform-origin: center center;
+        animation: MoveDownAndUpWithTilt 2s;
+    }
+    .right_arm, .left_arm {
+        animation: MoveDownAndUp 2s;
+    }
+    .head {
+        transform-origin: center center;
+        animation: MoveDownAndUpLow 2s;
+    }
+}
+
+svg.alfons.blink {
+    .left_eye, .right_eye
+    {
+        transform-origin: 0 400px;
+        animation: Blink 0.15s ease-in-out;
+    }
+}
+
+svg.alfons.leftLooking {
+    .left_inner_eye, .right_inner_eye {
+        transform: translate(-45px, 0);
+    }
+    .left_eye_spark, .right_eye_spark {
+        transform: translate(-5px, 0);
+    }
+    .nose {
+        transform: scaleX(-1);
+    }
+}
+
+@keyframes Blink {
+    0%,100% {
+        transform: scaleY(100%);
+    }
+    50% {
+        transform: scaleY(0%);
+    }
+}
+
+@keyframes MoveDownAndUp {
+    0%, 100% {
+        transform: translate(0,0);
+    }
+    50% {
+        transform: translate(0,1%);
+    }
+}
+@keyframes MoveDownAndUpWithTilt {
+    0%, 100% {
+        transform: translate(0,0) rotateZ(0deg);
+    }
+    50% {
+        transform: translate(0,20px) rotate(2deg);
+    }
+}
+
+@keyframes MoveDownAndUpLow {
+    0%, 100% {
+        transform: translate(0,0) ;
+    }
+    50% {
+        transform: translate(0,0.5%) ;
+    }
+}
