@@ -19,7 +19,7 @@ export default function AlfonsPage() {
     return <main>
         <Alfons hat={isHat} size={500} leftLooking={isLeft}/>
         <div className="m-12 flex gap-3">
-            <ToolTip text="Press to make my hat move!">
+            <ToolTip label="Press to make my hat move!">
                 <button
                     className="p-2 active:bg-black active:text-white duration-200 active:duration-0 hover:bg-white w-fit transition-colors px-4 bg-[#fff5] border border-[#fff8] rounded"
                     onClick={handleClick}
