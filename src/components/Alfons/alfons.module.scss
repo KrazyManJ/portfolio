@@ -18,6 +18,7 @@ svg.alfons {
 svg.klobuk {
     .hat {
         transform-origin: center center;
+        --tilt-angle: 2deg;
         animation: MoveDownAndUpWithTilt 2s;
     }
     .right_arm, .left_arm {
@@ -47,6 +48,9 @@ svg.alfons.leftLooking {
     .nose {
         transform: scaleX(-1);
     }
+    .hat {
+        --tilt-angle: -2deg;
+    }
 }
 
 @keyframes Blink {
@@ -71,7 +75,7 @@ svg.alfons.leftLooking {
         transform: translate(0,0) rotateZ(0deg);
     }
     50% {
-        transform: translate(0,20px) rotate(2deg);
+        transform: translate(0,20px) rotate(var(--tilt-angle));
     }
 }
 

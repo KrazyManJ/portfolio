@@ -1,9 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from "@/components/Alfons/alfons.module.css";
-
-function getRndInteger(min:number, max:number) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
+import {randInt} from "@/utils";
 
 export interface AlfonsProps extends React.SVGProps<SVGSVGElement> {
     size: number,
@@ -20,16 +17,9 @@ const Alfons = ({size, hat, leftLooking, className, ...props}: AlfonsProps) => {
     if (leftLooking) cls.push(styles.leftLooking)
 
     useEffect(() => {
-        if (isBlink){
-            setTimeout(() => setBlink(false), 150)
-            setTimeout(() => setBlink(true), getRndInteger(1000,8000))
-        }
+        const timeoutId = setTimeout(() => setBlink(!isBlink), isBlink ? 150 : randInt(1000,8000))
+        return () => clearTimeout(timeoutId);
     }, [isBlink]);
-
-    window.addEventListener("focus", () => {
-        setBlink(false)
-        setBlink(true)
-    })
 
     return (
         <svg className={cls.join(" ")+" "+className} width={size} height={size} {...props} viewBox="0 0 1000 1000" fill="none"
@@ -65,7 +55,7 @@ const Alfons = ({size, hat, leftLooking, className, ...props}: AlfonsProps) => {
                           d="M60 625C60 619.477 64.4772 615 70 615H215C220.523 615 225 619.477 225 625V807.5C225 853.063 188.063 890 142.5 890C96.9365 890 60 853.063 60 807.5V625Z"
                           fill="#370407"/>
                 </g>
-                <g id={styles.head}>
+                <g className={styles.head}>
                     <path id="left_ear"
                           d="M220 460C220 446.193 231.193 435 245 435H260V485H245C231.193 485 220 473.807 220 460V460Z"
                           fill="#E5C2A6"/>

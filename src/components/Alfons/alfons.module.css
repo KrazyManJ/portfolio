@@ -16,6 +16,7 @@ svg.alfons .left_eye *, svg.alfons .right_eye *, svg.alfons .nose {
 }
 svg.klobuk .hat {
   transform-origin: center center;
+  --tilt-angle: 2deg;
   animation: MoveDownAndUpWithTilt 2s;
 }
 svg.klobuk .right_arm, svg.klobuk .left_arm {
@@ -40,6 +41,9 @@ svg.alfons.leftLooking .left_eye_spark, svg.alfons.leftLooking .right_eye_spark 
 svg.alfons.leftLooking .nose {
   transform: scaleX(-1);
 }
+svg.alfons.leftLooking .hat {
+  --tilt-angle: -2deg;
+}
 
 @keyframes Blink {
   0%, 100% {
@@ -62,7 +66,7 @@ svg.alfons.leftLooking .nose {
     transform: translate(0, 0) rotateZ(0deg);
   }
   50% {
-    transform: translate(0, 20px) rotate(2deg);
+    transform: translate(0, 20px) rotate(var(--tilt-angle));
   }
 }
 @keyframes MoveDownAndUpLow {

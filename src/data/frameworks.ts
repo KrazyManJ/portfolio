@@ -56,12 +56,17 @@ const FRAMEWORKS : IconLabelProps[] = [
         link: "https://mermaid.js.org",
         tooltip: "Javascript library to render charts and diagrams"
     },
-
     {
         img: "/icons/tkinter.svg",
         label: "Tkinter",
         link: "https://docs.python.org/3/library/tkinter.html",
         tooltip: "Python library to create really basic UI in small time"
+    },
+    {
+        img: "/icons/squirclejs.svg",
+        label: "SquircleJS",
+        link: "https://squircle.js.org",
+        tooltip: "React library to make iOS-style squircle (square circle) components"
     }
 
 ];
