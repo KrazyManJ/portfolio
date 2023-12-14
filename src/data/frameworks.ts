@@ -1,6 +1,6 @@
-import {IconLabelProps} from "@/components/IconLabel";
+import {TechBadgeProps} from "@/components/TechBadge";
 
-const FRAMEWORKS : IconLabelProps[] = [
+const FRAMEWORKS : TechBadgeProps[] = [
 
     {
         img: "/icons/tailwind.svg",
@@ -66,7 +66,7 @@ const FRAMEWORKS : IconLabelProps[] = [
         img: "/icons/squirclejs.svg",
         label: "SquircleJS",
         link: "https://squircle.js.org",
-        tooltip: "React library to make iOS-style squircle (square circle) components"
+        tooltip: "React library to make iOS-style\nsquircle (square circle) components"
     }
 
 ];

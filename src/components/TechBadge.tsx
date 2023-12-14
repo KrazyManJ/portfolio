@@ -6,14 +6,14 @@ import React from "react";
 import ToolTip from "@/components/ToolTip";
 import ShadowSquircle from "@/components/ShadowSquircle";
 
-export interface IconLabelProps {
+export interface TechBadgeProps {
     img: string,
     label: string,
     link: string,
     tooltip: string
 }
 
-const IconLabel = (props: IconLabelProps) =>
+const TechBadge = (props: TechBadgeProps) =>
     <ToolTip label={props.tooltip}>
         <a href={props.link ?? ""} target="_blank">
             <motion.div
@@ -33,4 +33,4 @@ const IconLabel = (props: IconLabelProps) =>
         </a>
     </ToolTip>
 
-export default IconLabel;
+export default TechBadge;

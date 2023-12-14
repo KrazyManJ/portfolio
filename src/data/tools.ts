@@ -1,7 +1,7 @@
-import {IconLabelProps} from "@/components/IconLabel";
+import {TechBadgeProps} from "@/components/TechBadge";
 
 
-const TOOLS: IconLabelProps[] = [
+const TOOLS: TechBadgeProps[] = [
     {
         img: "/icons/cloudflare.svg",
         label: "Cloudflare",

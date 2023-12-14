@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from "react";
 
 
-import IconLabel from "@/components/IconLabel";
+import TechBadge from "@/components/TechBadge";
 import {motion} from "framer-motion";
 import TOOLS from "@/data/tools";
 import FRAMEWORKS from "@/data/frameworks";
@@ -37,11 +37,11 @@ export default function Main() {
             </div>
             <Title>Tools I am using</Title>
             <div className="flex gap-4 my-8 mx-24 flex-wrap justify-stretch">
-                {TOOLS.map((v, i) => <IconLabel {...v} key={i}/>)}
+                {TOOLS.map((v, i) => <TechBadge {...v} key={i}/>)}
             </div>
             <Title>Frameworks / Libraries</Title>
             <div className="flex gap-4 my-8 mx-24 flex-wrap justify-stretch">
-                {FRAMEWORKS.map((v, i) => <IconLabel {...v} key={i}/>)}
+                {FRAMEWORKS.map((v, i) => <TechBadge {...v} key={i}/>)}
             </div>
         </main>
     )
