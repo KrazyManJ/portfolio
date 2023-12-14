@@ -22,7 +22,7 @@ const TechBadge = (props: TechBadgeProps) =>
             >
                 <ShadowSquircle
                     className={"flex group gap-2 items-center p-3 select-none"}
-                    squircleClassName={"transition-colors group-hover:bg-white bg-[#fff8] border-[#fffa] border"}
+                    squircleClassName={"transition-colors group-hover:bg-white dark:bg-[#6668] dark:group-hover:bg-[#222] bg-[#fff8] dark:border-[#fff5] border-[#fff8] border"}
                     cornerRadius={10}
                     cornerSmoothing={1}
                 >

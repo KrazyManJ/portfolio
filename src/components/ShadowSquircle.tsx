@@ -14,7 +14,7 @@ const ShadowSquircle = ({
     ...props
 }: ShadowSquircleProps) => {
     return (
-        <div className={"relative " + (className ?? "")} {...props}>
+        <div className={"relative w-fit " + (className ?? "")} {...props}>
             <div className="-z-10 m-5 -top-5 -left-5 absolute h-full w-full drop-shadow-lg">
                 <Squircle
                     cornerSmoothing={cornerSmoothing}

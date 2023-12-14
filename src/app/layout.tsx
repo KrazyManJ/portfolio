@@ -1,6 +1,8 @@
 import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import './globals.css'
+import Theme from "@/components/Providers";
+import React from "react";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -12,8 +14,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
     return (
-        <html lang="en" className="bg-[#dedede]">
-        <body className={inter.className}>{children}</body>
+        <html lang="en">
+            <body className={inter.className}>
+                <Theme>
+                    <div className={"relative z-30 bg-[#dedede] dark:bg-[#111]"}>
+                        {children}
+                    </div>
+                </Theme>
+            </body>
         </html>
     )
 }

@@ -7,6 +7,7 @@ import {motion} from "framer-motion";
 import TOOLS from "@/data/tools";
 import FRAMEWORKS from "@/data/frameworks";
 import Alfons from "@/components/Alfons/Alfons";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Title = ({children}: { children: string }) => <h2 className="font-bold transition-colors text-5xl">{children}</h2>
 
@@ -17,7 +18,8 @@ export default function Main() {
         return () => clearInterval(int);
     });
     return (
-        <main className="p-8">
+        <main className="p-8 pb-32">
+            <ThemeToggle/>
             <div className="flex items-center gap-10 justify-evenly">
                 <div className={"mb-14 w-min"}>
                     <motion.h1

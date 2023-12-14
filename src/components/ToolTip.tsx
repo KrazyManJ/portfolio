@@ -27,7 +27,7 @@ const ToolTip = (props: ToolTipProps) =>
             >
                 <ShadowSquircle
                     className="pointer-events-auto whitespace-pre p-1 px-2 text-center text-xs"
-                    squircleClassName="bg-white"
+                    squircleClassName="bg-white dark:bg-[#333]"
                     cornerSmoothing={1}
                     cornerRadius={8}
                 >
