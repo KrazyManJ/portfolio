@@ -14,15 +14,15 @@ svg.alfons .left_eye *, svg.alfons .right_eye *, svg.alfons .nose {
     transform: translateY(-5px);
   }
 }
-svg.klobuk .hat {
+svg.hatTilt .hat {
   transform-origin: center center;
   --tilt-angle: 2deg;
   animation: MoveDownAndUpWithTilt 2s;
 }
-svg.klobuk .right_arm, svg.klobuk .left_arm {
+svg.hatTilt .right_arm, svg.hatTilt .left_arm {
   animation: MoveDownAndUp 2s;
 }
-svg.klobuk .head {
+svg.hatTilt .head {
   transform-origin: center center;
   animation: MoveDownAndUpLow 2s;
 }

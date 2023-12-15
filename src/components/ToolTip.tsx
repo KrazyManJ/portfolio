@@ -2,7 +2,7 @@
 
 import React from "react";
 import {motion} from "framer-motion";
-import ShadowSquircle from "@/components/ShadowSquircle";
+import ContaineredSquircle from "@/components/ContaineredSquircle";
 
 interface ToolTipProps {
     label: string | React.ReactElement,
@@ -25,14 +25,14 @@ const ToolTip = (props: ToolTipProps) =>
                 variants={{hover: {scale: 1, transition: {delay: SHOWTIME}}}}
                 style={{originY: 0}}
             >
-                <ShadowSquircle
-                    className="pointer-events-auto whitespace-pre p-1 px-2 text-center text-xs"
-                    squircleClassName="bg-white dark:bg-[#333]"
+                <ContaineredSquircle
+                    containerClassName={"shadow-lg"}
+                    className="pointer-events-auto whitespace-pre p-1 px-2 text-center text-xs bg-white dark:bg-[#333]"
                     cornerSmoothing={1}
                     cornerRadius={8}
                 >
                     {props.label}
-                </ShadowSquircle>
+                </ContaineredSquircle>
             </motion.div>
         </motion.div>
     </motion.div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTheme} from "next-themes";
-import ShadowSquircle from "@/components/ShadowSquircle";
+import ContaineredSquircle from "@/components/ContaineredSquircle";
 
 const ThemeToggle = () => {
     const {systemTheme, theme, setTheme} = useTheme()
@@ -11,15 +11,15 @@ const ThemeToggle = () => {
     }
 
     return (
-        <ShadowSquircle
+        <ContaineredSquircle
             onClick={() => setTheme(toggle())}
-            squircleClassName={"dark:bg-white bg-black transition-colors"}
             cornerRadius={10}
             cornerSmoothing={1}
-            className={"text-white dark:text-black  transition-colors"}
+            containerClassName={"shadow w-fit"}
+            className={"w-fit dark:bg-white bg-black transition-colors text-white dark:text-black"}
         >
             <button className={"p-2"}>Toggle to {toggle()} theme</button>
-        </ShadowSquircle>
+        </ContaineredSquircle>
     );
 };
 

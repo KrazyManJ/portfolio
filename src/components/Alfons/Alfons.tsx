@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from "@/components/Alfons/alfons.module.css";
-import {randInt} from "@/utils";
+import {cn, randInt} from "@/utils";
 
 export interface AlfonsProps extends React.SVGProps<SVGSVGElement> {
     size: number,
@@ -11,18 +11,19 @@ export interface AlfonsProps extends React.SVGProps<SVGSVGElement> {
 const Alfons = ({size, hat, leftLooking, className, ...props}: AlfonsProps) => {
     const [isBlink, setBlink] = useState(true);
 
-    const cls = [styles.alfons];
-    if (isBlink) cls.push(styles.blink)
-    if (hat) cls.push(styles.klobuk)
-    if (leftLooking) cls.push(styles.leftLooking)
-
     useEffect(() => {
         const timeoutId = setTimeout(() => setBlink(!isBlink), isBlink ? 150 : randInt(1000,8000))
         return () => clearTimeout(timeoutId);
     }, [isBlink]);
 
     return (
-        <svg className={cls.join(" ")+" "+className} width={size} height={size} {...props} viewBox="0 0 1000 1000" fill="none"
+        <svg
+            className={cn(className, styles.alfons, {
+                [styles.blink]: isBlink,
+                [styles.hatTilt]: hat,
+                [styles.leftLooking]: leftLooking
+            })}
+            width={size} height={size} {...props} viewBox="0 0 1000 1000" fill="none"
              xmlns="http://www.w3.org/2000/svg">
             <g id="Alfons Vector">
                 <path id="body"
