@@ -29,9 +29,8 @@ const LangStats = () => {
 
 
     return (
-        <ContaineredSquircle className="p-5 py-10 m-5 w-fit"
+        <ContaineredSquircle className="bg-white p-5 py-10 m-5 w-fit"
                              cornerRadius={40} cornerSmoothing={1}
-                             squircleClassName={"bg-white"}
         >
             {Object.entries(data).map(([lang,val]) => {
                 return <>

@@ -6,7 +6,8 @@ const FRAMEWORKS : TechBadgeProps[] = [
         img: "/icons/tailwind.svg",
         label: "Tailwind CSS",
         link: "https://tailwindcss.com",
-        tooltip: "CSS Framework for designing via predefined classes"
+        tooltip: "CSS Framework for designing via predefined classes",
+        aspectRatio: [54,33]
     },
     {
         img: "/icons/fastapi.svg",
@@ -18,31 +19,35 @@ const FRAMEWORKS : TechBadgeProps[] = [
         img: "/icons/nextjs.svg",
         label: "Next.js",
         link: "https://nextjs.org",
-        tooltip: "Web development framework based on React with\nallowance of serverside rendering"
+        tooltip: "Web development framework based on React with\nallowance of serverside rendering",
     },
     {
         img: "/icons/qt.svg",
         label: "PyQt",
         link: "https://riverbankcomputing.com/software/pyqt",
-        tooltip: "Python library based on QT (C++ version)\nto create GUI applications"
+        tooltip: "Python library based on QT (C++ version)\nto create GUI applications",
+        aspectRatio: [462,339]
     },
     {
         img: "/icons/sass.svg",
         label: "Sass",
         link: "https://sass-lang.com",
-        tooltip: "CSS Framework to write CSS in more efficient way"
+        tooltip: "CSS Framework to write CSS in more efficient way",
+        aspectRatio: [548,411]
     },
     {
         img: "/icons/react.svg",
         label: "React",
         link: "https://react.dev",
-        tooltip: "Javascript library to create web interfaces"
+        tooltip: "Javascript library to create web interfaces",
+        aspectRatio: [23,20]
     },
     {
         img: "/icons/manim.svg",
         label: "Manim",
         link: "https://www.manim.community",
-        tooltip: "Python library for creating mathematical animations"
+        tooltip: "Python library for creating mathematical animations",
+        aspectRatio: [100,70]
     },
     {
         img: "/icons/framer-motion.svg",

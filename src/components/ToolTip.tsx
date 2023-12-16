@@ -26,10 +26,10 @@ const ToolTip = (props: ToolTipProps) =>
                 style={{originY: 0}}
             >
                 <ContaineredSquircle
-                    containerClassName={"shadow-lg"}
+                    containerClassName={"drop-shadow-lg"}
                     className="pointer-events-auto whitespace-pre p-1 px-2 text-center text-xs bg-white dark:bg-[#333]"
                     cornerSmoothing={1}
-                    cornerRadius={8}
+                    cornerRadius={10}
                 >
                     {props.label}
                 </ContaineredSquircle>

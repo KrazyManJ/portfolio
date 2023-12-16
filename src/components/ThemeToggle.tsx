@@ -1,10 +1,11 @@
+'use client';
+
 import React from 'react';
 import {useTheme} from "next-themes";
 import ContaineredSquircle from "@/components/ContaineredSquircle";
 
 const ThemeToggle = () => {
     const {systemTheme, theme, setTheme} = useTheme()
-    console.log(systemTheme, theme)
     const toggle = () => {
         if (theme == "system") return systemTheme == 'dark' ? 'light' : 'dark';
         return theme == 'dark' ? 'light' : 'dark';

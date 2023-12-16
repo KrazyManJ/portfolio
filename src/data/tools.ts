@@ -12,7 +12,8 @@ const TOOLS: TechBadgeProps[] = [
         img: "/icons/latex.svg",
         label: "LaTeX",
         link: "https://www.latex-project.org",
-        tooltip: "Typesetting system software for documents"
+        tooltip: "Typesetting system software for documents",
+        aspectRatio: [12,5]
     },
     {
         img: "/icons/figma.svg",
@@ -84,7 +85,8 @@ const TOOLS: TechBadgeProps[] = [
         img: "/icons/termius.svg",
         label: "Termius",
         link: "https://termius.com",
-        tooltip: "SSH Client for accessing remote device"
+        tooltip: "SSH Client for accessing remote device",
+        aspectRatio: [359,307]
     },
     {
         img: "/icons/xampp.svg",
@@ -96,7 +98,8 @@ const TOOLS: TechBadgeProps[] = [
         img: "/icons/phpmyadmin.svg",
         label: "PhpMyAdmin",
         link: "https://www.phpmyadmin.net",
-        tooltip: "Administration tool for MariaDB or MySQL databases"
+        tooltip: "Administration tool for MariaDB or MySQL databases",
+        aspectRatio: [3890, 2168]
     },
     {
         img: "/icons/github.svg",

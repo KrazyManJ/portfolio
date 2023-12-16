@@ -2,35 +2,48 @@
 
 import {motion} from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import React, {useState} from "react";
 import ToolTip from "@/components/ToolTip";
 import ContaineredSquircle from "@/components/ContaineredSquircle";
+import {cn} from "@/utils";
 
 export interface TechBadgeProps {
     img: string,
     label: string,
     link: string,
-    tooltip: string
+    tooltip: string,
+    aspectRatio?: [number, number]
 }
 
-const TechBadge = (props: TechBadgeProps) =>
-    <ToolTip label={props.tooltip}>
-        <a href={props.link ?? ""} target="_blank">
+const TechBadge = ({
+    tooltip,
+    link,
+    img,
+    label,
+    aspectRatio = [1,1]
+}: TechBadgeProps
+) => {
+    const [isLoaded, setLoaded] = useState(false);
+    const [aspectW, aspectH] = aspectRatio;
+    return <ToolTip label={tooltip}>
+        <a href={link ?? ""} target="_blank">
             <motion.div
                 transition={{type:"spring",bounce:0.7}}
                 whileHover={{scale:1.1}}
             >
                 <ContaineredSquircle
-                    containerClassName={"group shadow-lg"}
-                    className={"flex group gap-2 items-center p-3 select-none transition-colors group-hover:bg-white dark:bg-[#6668] dark:group-hover:bg-[#222] bg-[#eee] dark:border-[#fff5] border-[#fff8] border"}
-                    cornerRadius={10}
+                    containerClassName={cn("drop-shadow-lg transition-opacity",{"opacity-1": isLoaded, "opacity-0": !isLoaded})}
+                    className={"flex group gap-2 items-center p-3 select-none transition-colors hover:bg-white dark:bg-[#6668] dark:hover:bg-[#222] bg-[#eee] dark:border-[#fff5] border-[#fff8] border"}
+                    cornerRadius={15}
                     cornerSmoothing={1}
+                    onLoad={() => setLoaded(true)}
                 >
-                    <Image width={0} height={0} className={"h-[24px] w-auto"} src={props.img} draggable={false} alt=""/>
-                    <span className="font-medium text-lg">{props.label}</span>
+                    <Image height={24} width={24/aspectH*aspectW} src={img} draggable={false} loading={"lazy"} alt=""/>
+                    <span className="font-medium text-lg">{label}</span>
                 </ContaineredSquircle>
             </motion.div>
         </a>
     </ToolTip>
+}
 
 export default TechBadge;

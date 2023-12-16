@@ -13,7 +13,7 @@ const ContaineredSquircle = ({
     ...props
 }: ContaineredSquircleProps) => {
     return (
-        <div className={containerClassName} style={{borderRadius: cornerRadius ? cornerRadius + 1 : undefined}}>
+        <div className={containerClassName}>
             <Squircle
                 cornerRadius={cornerRadius}
                 className={className}
