@@ -1,11 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useTheme} from "next-themes";
 import ContaineredSquircle from "@/components/ContaineredSquircle";
 
 const ThemeToggle = () => {
     const {systemTheme, theme, setTheme} = useTheme()
+
+    // This is for not throwing error
+    const [hasMounted, setHasMounted] = useState(false);
+    useEffect(() => setHasMounted(true), []);
+    if (!hasMounted) return null;
+
     const toggle = () => {
         if (theme == "system") return systemTheme == 'dark' ? 'light' : 'dark';
         return theme == 'dark' ? 'light' : 'dark';
