@@ -12,6 +12,7 @@
     "@squircle-js/react": "^1.2.0",
     "class-variance-authority": "^0.7.0",
     "framer-motion": "^10.16.16",
+    "js-yaml": "^4.1.0",
     "lucide-react": "^0.298.0",
     "next": "14.0.4",
     "next-themes": "^0.2.1",
@@ -22,6 +23,7 @@
     "tailwind-merge": "^2.1.0"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
