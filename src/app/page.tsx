@@ -1,21 +1,21 @@
 'use client';
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef} from "react";
 
 
 import TechBadge from "@/components/TechBadge";
 import {motion} from "framer-motion";
 import TOOLS from "@/data/tools";
 import FRAMEWORKS from "@/data/frameworks";
-import Alfons from "@/components/Alfons/Alfons";
+import Alfons, {AlfonsRef} from "@/components/Alfons/Alfons";
 import ThemeToggle from "@/components/ThemeToggle";
 import LangStats from "@/components/LangStats";
 
 const Title = ({children}: { children: string }) => <h2 className="font-bold transition-colors text-5xl">{children}</h2>
 
 export default function Main() {
-    const [hat, setHat] = useState(false);
+    const alfonsRef = useRef<AlfonsRef>(null);
     useEffect(() => {
-        const int = setInterval(() => setHat(!hat), 5000);
+        const int = setInterval(() => alfonsRef.current?.tiltHat(), 5000);
         return () => clearInterval(int);
     });
     return (
@@ -39,7 +39,7 @@ export default function Main() {
                     >Software developer
                     </motion.div>
                 </div>
-                <Alfons size={500} hat={hat} leftLooking className="drop-shadow-lg"/>
+                <Alfons size={500} leftLooking className="drop-shadow-lg" ref={alfonsRef}/>
             </div>
             <Title>Tools I am using</Title>
             <div className="flex gap-4 my-8 mx-24 flex-wrap justify-stretch">

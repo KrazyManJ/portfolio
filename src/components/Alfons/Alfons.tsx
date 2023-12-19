@@ -1,30 +1,69 @@
-import React, {useEffect, useState} from 'react';
+import React, {forwardRef, useEffect, useImperativeHandle, useRef, useState} from 'react';
 import styles from "@/components/Alfons/alfons.module.css";
 import {cn, randInt} from "@/utils";
 
 export interface AlfonsProps extends React.SVGProps<SVGSVGElement> {
+    /** Size of Alfons image */
     size: number,
-    hat: boolean,
     leftLooking?: boolean
 }
 
-const Alfons = ({size, hat, leftLooking, className, ...props}: AlfonsProps) => {
+export interface AlfonsRef {
+    tiltHat: () => void
+}
+
+const ANIM_TIMES = {
+    blink: 150,
+    hatTilt: 2000
+}
+
+const Alfons = forwardRef<AlfonsRef, AlfonsProps>((
+    {
+        size,
+        className,
+        leftLooking = false,
+        ...props
+    }: AlfonsProps, ref
+) => {
+
     const [isBlink, setBlink] = useState(true);
+    const [isHatTilted, setHatTilted] = useState(false);
+
+    const svgRef = useRef<SVGSVGElement>(null);
+
+    useImperativeHandle(ref, () => {
+        return {
+            tiltHat: () => setHatTilted(true)
+        }
+    })
 
     useEffect(() => {
-        const timeoutId = setTimeout(() => setBlink(!isBlink), isBlink ? 150 : randInt(1000,8000))
+        const timeoutId = setTimeout(() => setBlink(!isBlink), isBlink ? ANIM_TIMES.blink : randInt(1000, 8000));
         return () => clearTimeout(timeoutId);
     }, [isBlink]);
+
+    useEffect(() => {
+        if (isHatTilted) {
+            const timeout = setTimeout(() => setHatTilted(false), ANIM_TIMES.hatTilt);
+            return () => clearTimeout(timeout);
+        }
+    }, [isHatTilted]);
+
+
 
     return (
         <svg
             className={cn(className, styles.alfons, {
                 [styles.blink]: isBlink,
-                [styles.hatTilt]: hat,
+                [styles.hatTilt]: isHatTilted,
                 [styles.leftLooking]: leftLooking
             })}
-            width={size} height={size} {...props} viewBox="0 0 1000 1000" fill="none"
-             xmlns="http://www.w3.org/2000/svg">
+            width={size} height={size} {...props}
+            ref={svgRef}
+
+            viewBox="0 0 1000 1000" fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
             <g id="Alfons Vector">
                 <path id="body"
                       d="M185 800C185 717.157 252.157 650 335 650H665C747.843 650 815 717.157 815 800V985C815 993.284 808.284 1000 800 1000H200C191.716 1000 185 993.284 185 985V800Z"
@@ -76,7 +115,8 @@ const Alfons = ({size, hat, leftLooking, className, ...props}: AlfonsProps) => {
                                       fill="white"/>
                                 <rect className={styles.left_inner_eye} x="388" y="380" width="55" height="40" rx="20"
                                       fill="black"/>
-                                <ellipse className={styles.left_eye_spark} cx="395" cy="397.5" rx="3" ry="7.5" fill="white"/>
+                                <ellipse className={styles.left_eye_spark} cx="395" cy="397.5" rx="3" ry="7.5"
+                                         fill="white"/>
                             </g>
                             <path className={styles.nose}
                                   d="M502.138 385C512.28 390.349 518.3 420.046 506.556 424.292C493.301 429.083 488 408 488 408"
@@ -86,7 +126,8 @@ const Alfons = ({size, hat, leftLooking, className, ...props}: AlfonsProps) => {
                                       fill="white"/>
                                 <rect className={styles.right_inner_eye} x="604" y="380" width="54" height="40" rx="20"
                                       fill="black"/>
-                                <ellipse className={styles.right_eye_spark} cx="610.5" cy="397.5" rx="2.5" ry="7.5" fill="white"/>
+                                <ellipse className={styles.right_eye_spark} cx="610.5" cy="397.5" rx="2.5" ry="7.5"
+                                         fill="white"/>
                             </g>
                         </g>
                     </g>
@@ -94,6 +135,8 @@ const Alfons = ({size, hat, leftLooking, className, ...props}: AlfonsProps) => {
             </g>
         </svg>
     );
-};
+});
+
+Alfons.displayName = "Alfons";
 
 export default Alfons;
