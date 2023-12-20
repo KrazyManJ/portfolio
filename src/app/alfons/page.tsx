@@ -3,6 +3,7 @@
 import React, {useRef, useState} from "react";
 import ToolTip from "@/components/ToolTip";
 import Alfons, {AlfonsRef} from "@/components/Alfons/Alfons";
+import NavBar from "@/components/NavBar";
 
 
 
@@ -14,6 +15,7 @@ export default function AlfonsPage() {
 
 
     return <main>
+        <NavBar/>
         <Alfons ref={alfonsRef} size={500} leftLooking={isLeft}/>
         <div className="m-12 flex gap-3">
             <ToolTip label="Press to make my hat move!">
