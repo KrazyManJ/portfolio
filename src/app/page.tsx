@@ -43,10 +43,10 @@ export default function Main() {
                     size={500}
                     className="drop-shadow-md flex-shrink-0"
                     ref={alfonsRef}
-                    asHandMovementSize
-                    options={{
-                        lookDirection:"left",
-                        leftHandAngle:50
+                    fitHands
+                    appearance={{
+                        lookDirection: "left",
+                        leftHandAngle: 50
                     }}
                 />
             </div>

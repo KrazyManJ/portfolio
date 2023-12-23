@@ -17,8 +17,8 @@ export default function AlfonsPage() {
         <Alfons
             ref={alfonsRef}
             size={500}
-            asHandMovementSize
-            options={{
+            fitHands
+            appearance={{
                 lookDirection: isLeft ? "left" : "right",
                 leftHandAngle: 70
             }}
