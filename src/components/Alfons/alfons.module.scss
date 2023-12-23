@@ -4,6 +4,23 @@ svg.alfons {
         transition: transform 0.1s ease-in-out;
         transform-origin: center;
     }
+    .left_arm {
+        transform-origin: 142.5px 810px;
+        --handAngle: calc(var(--leftHandAngle) * 1deg);
+    }
+    .right_arm {
+        transform-origin: 857.5px 810px;
+        --handAngle: calc(var(--rightHandAngle) * 1deg);
+    }
+    .left_arm, .right_arm {
+        transition: transform 0.6s ease-in-out;
+        transform: rotateZ(var(--handAngle));
+    }
+    .mouth {
+        transform-origin: center 465px;
+        //sad
+        //transform: rotateZ(180deg);
+    }
 }
 
 @keyframes idle {
@@ -64,10 +81,10 @@ svg.alfons.leftLooking {
 
 @keyframes MoveDownAndUp {
     0%, 100% {
-        transform: translate(0,0);
+        transform: translate(0,0) rotateZ(var(--handAngle));
     }
     50% {
-        transform: translate(0,1%);
+        transform: translate(0,1%) rotateZ(var(--handAngle));
     }
 }
 @keyframes MoveDownAndUpWithTilt {

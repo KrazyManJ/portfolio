@@ -1,30 +1,49 @@
-import React, {forwardRef, useEffect, useImperativeHandle, useRef, useState} from 'react';
+import React, {CSSProperties, forwardRef, useEffect, useImperativeHandle, useRef, useState} from 'react';
 import styles from "@/components/Alfons/alfons.module.css";
 import {cn, randInt} from "@/utils";
 
+interface AlfonsOptions {
+    lookDirection?: "left" | "right"
+    rightHandAngle?: number
+    leftHandAngle?: number
+}
+
 export interface AlfonsProps extends React.SVGProps<SVGSVGElement> {
     /** Size of Alfons image */
-    size: number,
-    leftLooking?: boolean
+    size: number
+    asHandMovementSize?: boolean
+    options?: AlfonsOptions
 }
 
 export interface AlfonsRef {
     tiltHat: () => void
 }
 
+const DEFAULT_OPTIONS: Required<AlfonsOptions> = {
+    lookDirection: "right",
+    leftHandAngle: 0,
+    rightHandAngle: 0
+};
+
 const ANIM_TIMES = {
     blink: 150,
     hatTilt: 2000
-}
+} as const;
 
 const Alfons = forwardRef<AlfonsRef, AlfonsProps>((
     {
         size,
         className,
-        leftLooking = false,
+        asHandMovementSize = false,
+        options = DEFAULT_OPTIONS,
         ...props
     }: AlfonsProps, ref
 ) => {
+
+    const opts = {
+        ...DEFAULT_OPTIONS,
+        ...Object.fromEntries(Object.entries(options).filter(([_, v]) => v !== undefined))
+    } as Required<AlfonsOptions>;
 
     const [isBlink, setBlink] = useState(true);
     const [isHatTilted, setHatTilted] = useState(false);
@@ -56,12 +75,20 @@ const Alfons = forwardRef<AlfonsRef, AlfonsProps>((
             className={cn(className, styles.alfons, {
                 [styles.blink]: isBlink,
                 [styles.hatTilt]: isHatTilted,
-                [styles.leftLooking]: leftLooking
+                [styles.leftLooking]: opts.lookDirection == "left"
             })}
-            width={size} height={size} {...props}
+            width={size*(asHandMovementSize ? 1.2 : 1)}
+            height={size}
             ref={svgRef}
 
-            viewBox="0 0 1000 1000" fill="none"
+            {...props}
+
+            style={{
+                "--leftHandAngle": -opts.leftHandAngle,
+                "--rightHandAngle": opts.rightHandAngle
+            } as CSSProperties}
+
+            viewBox={`0 0 1000 ${1000*(asHandMovementSize ? 1.1 : 1)}`} fill="none"
             xmlns="http://www.w3.org/2000/svg"
         >
             <g id="Alfons Vector">
@@ -107,7 +134,7 @@ const Alfons = forwardRef<AlfonsRef, AlfonsProps>((
                           fill="#E5C2A6"/>
 
                     <g id="face">
-                        <path id="Mouth" d="M425 455C443 475 480.715 475 499.285 475C517.856 475 557 475 575 455"
+                        <path className={styles.mouth} d="M425 455C443 475 480.715 475 499.285 475C517.856 475 557 475 575 455"
                               stroke="black" strokeWidth="7" strokeLinecap="round"/>
                         <g id="upper_face">
                             <g className={styles.left_eye}>

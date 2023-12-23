@@ -39,7 +39,16 @@ export default function Main() {
                     >Software developer
                     </motion.div>
                 </div>
-                <Alfons size={500} leftLooking className="drop-shadow-lg" ref={alfonsRef}/>
+                <Alfons
+                    size={500}
+                    className="drop-shadow-md flex-shrink-0"
+                    ref={alfonsRef}
+                    asHandMovementSize
+                    options={{
+                        lookDirection:"left",
+                        leftHandAngle:50
+                    }}
+                />
             </div>
             <Title>Tools I am using</Title>
             <div className="flex gap-4 my-8 mx-24 flex-wrap justify-stretch">

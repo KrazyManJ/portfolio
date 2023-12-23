@@ -12,11 +12,17 @@ export default function AlfonsPage() {
 
     const [isLeft, setLeft] = useState(false);
 
-
-
     return <main>
         <NavBar/>
-        <Alfons ref={alfonsRef} size={500} leftLooking={isLeft}/>
+        <Alfons
+            ref={alfonsRef}
+            size={500}
+            asHandMovementSize
+            options={{
+                lookDirection: isLeft ? "left" : "right",
+                leftHandAngle: 70
+            }}
+        />
         <div className="m-12 flex gap-3">
             <ToolTip label="Press to make my hat move!">
                 <button
@@ -32,4 +38,4 @@ export default function AlfonsPage() {
             </button>
         </div>
     </main>
-}
+};

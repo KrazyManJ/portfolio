@@ -4,12 +4,7 @@ import React from 'react';
 import {ThemeProvider} from "next-themes";
 import {ThemeProviderProps} from "next-themes/dist/types";
 
-const Theme = ({children}: ThemeProviderProps) => {
-    return (
-        <ThemeProvider attribute="class">
-            {children}
-        </ThemeProvider>
-    );
-};
+const Theme = ({attribute,...props}: ThemeProviderProps) =>
+    <ThemeProvider attribute={attribute ?? "class"} {...props}/>
 
 export default Theme;
