@@ -2,7 +2,13 @@ svg.alfons {
     animation: idle 4s infinite;
     .left_eye *, .right_eye *, .nose {
         transition: transform 0.1s ease-in-out;
-        transform-origin: center;
+        transform-origin: center center;
+    }
+    .left_eye_spark{
+        transform-origin: 395px 397px;
+    }
+    .right_eye_spark{
+        transform-origin: 610px 397px;
     }
     .left_arm {
         transform-origin: 142.5px 810px;
@@ -67,6 +73,14 @@ svg.alfons.leftLooking {
     }
     .hat {
         --tilt-angle: -2deg;
+    }
+}
+svg.alfons.upLooking {
+    .left_inner_eye, .right_inner_eye {
+        transform: translate(-22.5px, -5px);
+    }
+    .left_eye_spark, .right_eye_spark {
+        transform: translate(-2px, -12px) rotateZ(90deg);
     }
 }
 

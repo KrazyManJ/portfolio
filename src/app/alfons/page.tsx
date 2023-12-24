@@ -6,7 +6,6 @@ import Alfons, {AlfonsRef} from "@/components/Alfons/Alfons";
 import NavBar from "@/components/NavBar";
 
 
-
 export default function AlfonsPage() {
     const alfonsRef = useRef<AlfonsRef>(null);
 
@@ -19,7 +18,7 @@ export default function AlfonsPage() {
             size={500}
             fitHands
             appearance={{
-                lookDirection: isLeft ? "left" : "right",
+                lookDirection: "up",
                 leftHandAngle: 70
             }}
         />

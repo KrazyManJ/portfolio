@@ -24,15 +24,25 @@
 <path id="Mouth" d="M425 455C443 475 480.715 475 499.285 475C517.856 475 557 475 575 455" stroke="black" stroke-width="7" stroke-linecap="round"/>
 <g id="upper_face">
 <g id="left_eye">
-<rect id="Left-outer-Eye" x="343" y="380" width="100" height="45" rx="22.5" fill="white"/>
-<rect id="Left-inner-Eye" x="388" y="380" width="55" height="40" rx="20" fill="black"/>
-<ellipse id="Left-eye-Spark" cx="395" cy="397.5" rx="3" ry="7.5" fill="white"/>
+<rect x="343" y="380" width="100" height="45" rx="22.5" fill="white"/>
+<mask id="mask0_501_10" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="343" y="380" width="100" height="45">
+<rect id="left_eye_mask" x="343" y="380" width="100" height="45" rx="22.5" fill="white"/>
+</mask>
+<g mask="url(#mask0_501_10)">
+<rect id="left_inner_eye" x="388" y="380" width="55" height="40" rx="20" fill="black"/>
+<ellipse id="left_eye_spark" cx="395.5" cy="397.5" rx="2.5" ry="7.5" fill="white"/>
+</g>
 </g>
 <path id="nose" d="M502.138 385C512.28 390.349 518.3 420.046 506.556 424.292C493.301 429.083 488 408 488 408" stroke="black" stroke-width="7" stroke-linecap="round"/>
 <g id="right_eye">
-<rect id="Right-outer-Eye" x="558" y="380" width="100" height="45" rx="22.5" fill="white"/>
-<rect id="Right-inner-Eye" x="604" y="380" width="54" height="40" rx="20" fill="black"/>
-<ellipse id="Right-eye-Spark" cx="610.5" cy="397.5" rx="2.5" ry="7.5" fill="white"/>
+<rect x="558" y="380" width="100" height="45" rx="22.5" fill="white"/>
+<mask id="mask1_501_10" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="558" y="380" width="100" height="45">
+<rect id="right_eye_mask" x="558" y="380" width="100" height="45" rx="22.5" fill="white"/>
+</mask>
+<g mask="url(#mask1_501_10)">
+<rect id="right_inner_eye" x="603" y="380" width="55" height="40" rx="20" fill="black"/>
+<ellipse id="right_eye_spark" cx="610.5" cy="397.5" rx="2.5" ry="7.5" fill="white"/>
+</g>
 </g>
 </g>
 </g>

@@ -4,7 +4,7 @@ import {cn, mergeObjectsDefaults, randInt} from "@/utils";
 import {LeftArm, RightArm} from "@/components/Alfons/parts/hands";
 
 interface AlfonsAppearanceOptions {
-    lookDirection?: "left" | "right"
+    lookDirection?: "left" | "right" | "up"
 
     leftHandAngle?: number
     leftArmInFront?: boolean
@@ -80,7 +80,8 @@ const Alfons = forwardRef<AlfonsRef, AlfonsProps>((
     const conditionalStyles = {
         [styles.blink]: isBlink,
         [styles.hatTilt]: isHatTilted,
-        [styles.leftLooking]: opts.lookDirection == "left"
+        [styles.leftLooking]: opts.lookDirection == "left",
+        [styles.upLooking]: opts.lookDirection == "up"
     }
 
 
@@ -130,25 +131,52 @@ const Alfons = forwardRef<AlfonsRef, AlfonsProps>((
                     <path className={styles.mouth}
                           d="M425 455C443 475 480.715 475 499.285 475C517.856 475 557 475 575 455"
                           stroke="black" strokeWidth="7" strokeLinecap="round"/>
-                    <g id="upper_face">
+                    <g>
+                        {/*<g className={styles.left_eye}>*/}
+                        {/*    <rect x="343" y="380" width="100" height="45" rx="22.5"*/}
+                        {/*          fill="white"/>*/}
+                        {/*    <rect className={styles.left_inner_eye} x="388" y="380" width="55" height="40" rx="20"*/}
+                        {/*          fill="black"/>*/}
+                        {/*    <ellipse className={styles.left_eye_spark} cx="395" cy="397.5" rx="3" ry="7.5"*/}
+                        {/*             fill="white"/>*/}
+                        {/*</g>*/}
+                        {/*<path className={styles.nose}*/}
+                        {/*      d="M502.138 385C512.28 390.349 518.3 420.046 506.556 424.292C493.301 429.083 488 408 488 408"*/}
+                        {/*      stroke="black" strokeWidth="7" strokeLinecap="round"/>*/}
+                        {/*<g className={styles.right_eye}>*/}
+                        {/*    <rect x="558" y="380" width="100" height="45" rx="22.5"*/}
+                        {/*          fill="white"/>*/}
+                        {/*    <rect className={styles.right_inner_eye} x="604" y="380" width="54" height="40" rx="20"*/}
+                        {/*          fill="black"/>*/}
+                        {/*    <ellipse className={styles.right_eye_spark} cx="610.5" cy="397.5" rx="2.5" ry="7.5"*/}
+                        {/*             fill="white"/>*/}
+                        {/*</g>*/}
                         <g className={styles.left_eye}>
-                            <rect x="343" y="380" width="100" height="45" rx="22.5"
-                                  fill="white"/>
-                            <rect className={styles.left_inner_eye} x="388" y="380" width="55" height="40" rx="20"
-                                  fill="black"/>
-                            <ellipse className={styles.left_eye_spark} cx="395" cy="397.5" rx="3" ry="7.5"
-                                     fill="white"/>
+                            <rect x="343" y="380" width="100" height="45" rx="22.5" fill="white"/>
+                            <mask id="mask0_501_10" style={{maskType:"alpha"}} maskUnits="userSpaceOnUse" x="343" y="380"
+                                  width="100" height="45">
+                                <rect id="left_eye_mask" x="343" y="380" width="100" height="45" rx="22.5"
+                                      fill="white"/>
+                            </mask>
+                            <g mask="url(#mask0_501_10)">
+                                <rect className={styles.left_inner_eye} x="388" y="380" width="55" height="40" rx="20" fill="black"/>
+                                <ellipse className={styles.left_eye_spark} cx="395.5" cy="397.5" rx="2.5" ry="7.5" fill="white"/>
+                            </g>
                         </g>
                         <path className={styles.nose}
                               d="M502.138 385C512.28 390.349 518.3 420.046 506.556 424.292C493.301 429.083 488 408 488 408"
                               stroke="black" strokeWidth="7" strokeLinecap="round"/>
                         <g className={styles.right_eye}>
-                            <rect x="558" y="380" width="100" height="45" rx="22.5"
-                                  fill="white"/>
-                            <rect className={styles.right_inner_eye} x="604" y="380" width="54" height="40" rx="20"
-                                  fill="black"/>
-                            <ellipse className={styles.right_eye_spark} cx="610.5" cy="397.5" rx="2.5" ry="7.5"
-                                     fill="white"/>
+                            <rect x="558" y="380" width="100" height="45" rx="22.5" fill="white"/>
+                            <mask id="mask1_501_10" style={{maskType:"alpha"}} maskUnits="userSpaceOnUse" x="558" y="380"
+                                  width="100" height="45">
+                                <rect id="right_eye_mask" x="558" y="380" width="100" height="45" rx="22.5"
+                                      fill="white"/>
+                            </mask>
+                            <g mask="url(#mask1_501_10)">
+                                <rect className={styles.right_inner_eye} x="603" y="380" width="55" height="40" rx="20" fill="black"/>
+                                <ellipse className={styles.right_eye_spark} cx="610.5" cy="397.5" rx="2.5" ry="7.5" fill="white"/>
+                            </g>
                         </g>
                     </g>
                 </g>

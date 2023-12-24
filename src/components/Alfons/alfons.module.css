@@ -3,7 +3,13 @@ svg.alfons {
 }
 svg.alfons .left_eye *, svg.alfons .right_eye *, svg.alfons .nose {
   transition: transform 0.1s ease-in-out;
-  transform-origin: center;
+  transform-origin: center center;
+}
+svg.alfons .left_eye_spark {
+  transform-origin: 395px 397px;
+}
+svg.alfons .right_eye_spark {
+  transform-origin: 610px 397px;
 }
 svg.alfons .left_arm {
   transform-origin: 142.5px 810px;
@@ -58,6 +64,13 @@ svg.alfons.leftLooking .nose {
 }
 svg.alfons.leftLooking .hat {
   --tilt-angle: -2deg;
+}
+
+svg.alfons.upLooking .left_inner_eye, svg.alfons.upLooking .right_inner_eye {
+  transform: translate(-22.5px, -5px);
+}
+svg.alfons.upLooking .left_eye_spark, svg.alfons.upLooking .right_eye_spark {
+  transform: translate(-2px, -12px) rotateZ(90deg);
 }
 
 @keyframes Blink {
