@@ -7,14 +7,12 @@ const code = Fira_Code({subsets: ['latin']})
 
 const NavBar = () => {
     return (
-        <div className={"flex p-5"}>
-            <div className={"flex-1"}>
-
-            </div>
-            <div className={cn("flex-[12] text-center text-3xl", code.className)}>
+        <div className={"flex p-5 mx-16 items-center"}>
+            <div/>
+            <div className={cn("flex-1 text-center text-3xl", code.className)}>
                 krazymanj.dev
             </div>
-            <div className={"flex-1"}>
+            <div>
                 <ThemeToggle/>
             </div>
         </div>

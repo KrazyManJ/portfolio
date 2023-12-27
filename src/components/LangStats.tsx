@@ -1,7 +1,6 @@
 'use client';
 
 import React, {useEffect, useState} from 'react';
-import ContaineredSquircle from "@/components/ContaineredSquircle";
 import yaml from "js-yaml";
 
 const jsonFetch = async <T, >(link: string): Promise<T> => {
@@ -98,11 +97,8 @@ const LangStats = () => {
 
 
     return (
-        <ContaineredSquircle
+        <div
             className={"bg-[#fff8] border border-[#fffa] p-10"}
-            containerClassName={"drop-shadow-lg"}
-            cornerSmoothing={1}
-            cornerRadius={75}
         >
             <table className={"w-full"}>
                 {Object.entries(data.langs).map(([k, v], i) => (
@@ -127,7 +123,7 @@ const LangStats = () => {
                     </tr>
                 ))}
             </table>
-        </ContaineredSquircle>
+        </div>
     )
 };
 

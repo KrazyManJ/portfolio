@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@squircle-js/react": "^1.2.0",
     "class-variance-authority": "^0.7.0",
     "framer-motion": "^10.16.16",
     "js-yaml": "^4.1.0",

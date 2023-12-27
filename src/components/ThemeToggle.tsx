@@ -2,8 +2,7 @@
 
 import React, {useEffect, useState} from 'react';
 import {useTheme} from "next-themes";
-import ContaineredSquircle from "@/components/ContaineredSquircle";
-import {Moon, Sun } from 'lucide-react';
+import {LucideProps, Moon, Sun} from 'lucide-react';
 import { motion } from 'framer-motion';
 import ToolTip from './ToolTip';
 
@@ -20,25 +19,21 @@ const ThemeToggle = () => {
         return theme == 'dark' ? 'light' : 'dark';
     }
 
+    const Icon = (props: LucideProps) => nextThemeState() == 'light' ? <Sun {...props}/> : <Moon {...props}/>
+
     return (
         <ToolTip label={`Switch to ${nextThemeState()} mode`}>
             <motion.div
                 transition={{type: "spring",bounce: 0.7}}
                 whileHover={{scale: 1.1}}
                 whileTap={{scale: 0.95, transition: {duration: 0.05}}}
-                className={"w-fit"}
             >
-                <ContaineredSquircle
+                <button
                     onClick={() => setTheme(nextThemeState())}
-                    cornerRadius={12}
-                    cornerSmoothing={1}
-                    containerClassName={"drop-shadow-lg w-fit"}
-                    className={"w-fit dark:bg-white bg-black transition-colors text-white dark:text-black"}
+                    className={"p-2 bg-black transition-colors  dark:bg-white  rounded-xl"}
                 >
-                    <button className={"p-2"}>
-                        {nextThemeState() == 'light' ? <Sun/> : <Moon/>}
-                    </button>
-                </ContaineredSquircle>
+                    <Icon className={"text-white dark:text-black"}/>
+                </button>
             </motion.div>
         </ToolTip>
     );
