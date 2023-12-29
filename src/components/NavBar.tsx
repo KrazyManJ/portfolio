@@ -7,7 +7,7 @@ const code = Fira_Code({subsets: ['latin']})
 
 const NavBar = () => {
     return (
-        <div className={"flex p-5 mx-16 items-center"}>
+        <header className={"flex p-5 mx-16 items-center"}>
             <div/>
             <div className={cn("flex-1 text-center text-3xl", code.className)}>
                 krazymanj.dev
@@ -15,7 +15,7 @@ const NavBar = () => {
             <div>
                 <ThemeToggle/>
             </div>
-        </div>
+        </header>
     );
 };
 
